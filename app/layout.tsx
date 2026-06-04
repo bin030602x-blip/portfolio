@@ -40,6 +40,7 @@ export default function RootLayout({
     <html
       lang="ko"
       className={`${newsreader.variable} ${spaceMono.variable} ${notoSerifKr.variable}`}
+      suppressHydrationWarning
     >
       <body>{children}</body>
     </html>
