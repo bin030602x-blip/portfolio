@@ -2,6 +2,7 @@
 
 import ImageSlot from "@/components/ImageSlot";
 import SiteEffects from "@/components/SiteEffects";
+import { TOOL_LOGOS } from "@/components/ToolLogos";
 
 const PROJECTS = [
   {
@@ -88,14 +89,6 @@ const PROCESS = [
     h: "Ship & Learn",
     p: "출시는 끝이 아니라 측정의 시작. 지표와 사용자 목소리로 다음을 결정합니다.",
   },
-];
-
-const TOOLS = [
-  { mk: <b>Fg</b>, cap: "Figma" },
-  { mk: <b>Fr</b>, cap: "Framer" },
-  { mk: <b>Pp</b>, cap: "ProtoPie" },
-  { mk: <b>Ae</b>, cap: "After Effects" },
-  { mk: <span className="code">&lt;/&gt;</span>, cap: "HTML / CSS" },
 ];
 
 const PRACTICE = [
@@ -313,9 +306,9 @@ export default function Home() {
           <div className="col rv">
             <h4>Tools</h4>
             <div className="tools-row">
-              {TOOLS.map((t) => (
+              {TOOL_LOGOS.map((t) => (
                 <div className="tool" key={t.cap}>
-                  <span className="mk">{t.mk}</span>
+                  <span className="mk">{t.logo}</span>
                   <span className="cap">{t.cap}</span>
                 </div>
               ))}

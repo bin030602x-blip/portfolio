@@ -30,3 +30,4 @@ next-env.d.ts
 
 # image-slot sidecar (omelette runtime)
 .image-slots.state.json
+.gstack/

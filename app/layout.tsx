@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader, Space_Mono } from "next/font/google";
+import { Newsreader, Space_Mono, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -18,6 +18,15 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
+// Korean serif — Newsreader has no Hangul glyphs, so Korean text falls back
+// to this for consistent typesetting across the site.
+const notoSerifKr = Noto_Serif_KR({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-korean",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Jung Yubin — Product Designer",
   description:
@@ -28,7 +37,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ko" className={`${newsreader.variable} ${spaceMono.variable}`}>
+    <html
+      lang="ko"
+      className={`${newsreader.variable} ${spaceMono.variable} ${notoSerifKr.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
