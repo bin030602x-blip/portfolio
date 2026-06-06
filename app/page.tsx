@@ -1,8 +1,13 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import ImageSlot from "@/components/ImageSlot";
 import SiteEffects from "@/components/SiteEffects";
+
+const PdfCard = dynamic(() => import("@/components/PdfCard"), { ssr: false });
 import { TOOL_LOGOS } from "@/components/ToolLogos";
+
+const PDF_URL = "https://atapsctqeipwketirxgy.supabase.co/storage/v1/object/public/documents/jung-yubin-service-design-final.pdf";
 
 const PROJECTS = [
   {
@@ -192,6 +197,14 @@ export default function Home() {
           <span className="sec-n">01</span>
         </div>
         <div className="work-grid">
+          <PdfCard
+            url={PDF_URL}
+            no="00"
+            title="서비스디자인 기말"
+            tags={["Service Design", "Research", "2026"]}
+            year="2026"
+            role="정유빈"
+          />
           {PROJECTS.map((p) => (
             <a className="proj-card rv" href="#" onClick={noop} key={p.no}>
               <div className="card-img">
