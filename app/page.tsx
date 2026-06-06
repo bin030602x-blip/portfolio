@@ -111,11 +111,8 @@ const MARQUEE = [
   "Product Strategy",
 ];
 
+const RESUME_URL = "https://atapsctqeipwketirxgy.supabase.co/storage/v1/object/public/documents/jung-yubin-service-design-final.pdf";
 const noop = (e: React.MouseEvent) => e.preventDefault();
-const resumeAlert = (e: React.MouseEvent) => {
-  e.preventDefault();
-  alert("이력서 PDF를 여기에 연결하세요.");
-};
 
 export default function Home() {
   return (
@@ -138,7 +135,7 @@ export default function Home() {
           <a href="#process" data-link><span>Process</span></a>
           <a href="#contact" data-link><span>Contact</span></a>
         </div>
-        <a className="resume" href="#" data-link onClick={resumeAlert}>
+        <a className="resume" href={RESUME_URL} data-link target="_blank" rel="noopener noreferrer">
           <span>Résumé ↓</span>
         </a>
       </nav>
@@ -337,7 +334,7 @@ export default function Home() {
             <a href="#" onClick={noop}>Dribbble</a>
             <a href="#" onClick={noop}>Instagram</a>
           </div>
-          <a className="resume2" href="#" onClick={resumeAlert}>
+          <a className="resume2" href={RESUME_URL} target="_blank" rel="noopener noreferrer">
             <span>Résumé 2026 (PDF)</span>
             <span className="ic">↓</span>
           </a>
