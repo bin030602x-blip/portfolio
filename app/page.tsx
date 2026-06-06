@@ -133,18 +133,10 @@ export default function Home() {
           JUNG&nbsp;YUBIN
         </a>
         <div className="menu">
-          <a href="#work" data-link>
-            <span>Work</span>
-          </a>
-          <a href="#about" data-link>
-            <span>About</span>
-          </a>
-          <a href="#process" data-link>
-            <span>Process</span>
-          </a>
-          <a href="#contact" data-link>
-            <span>Contact</span>
-          </a>
+          <a href="#work" data-link><span>Work</span></a>
+          <a href="#about" data-link><span>About</span></a>
+          <a href="#process" data-link><span>Process</span></a>
+          <a href="#contact" data-link><span>Contact</span></a>
         </div>
         <a className="resume" href="#" data-link onClick={resumeAlert}>
           <span>Résumé ↓</span>
@@ -153,55 +145,43 @@ export default function Home() {
 
       {/* HERO */}
       <header className="hero" id="top">
-        <div className="hero-meta">
-          <span
-            className="label"
-            style={{ color: "var(--ink)", letterSpacing: ".32em" }}
-          >
-            정유빈
-          </span>
-          <span className="label" id="clock">
-            Seoul ——:——
-          </span>
+        <div className="hero-kicker rv">
+          <span className="dot-accent">●</span>
+          <span className="label" style={{ color: "var(--fg-2)" }}>Product Designer</span>
+          <hr className="k-rule" />
+          <span className="label">Est. 2019</span>
+          <span className="label hero-location" id="clock">Seoul ——:——</span>
         </div>
-        <div className="hero-grid">
-          <div className="masthead">
-            <div className="kicker">
-              <span className="label">Product Designer</span>
-              <hr className="rule" style={{ flex: 1, maxWidth: 200 }} />
-              <span className="label">Est. 2019</span>
-            </div>
-            <h1 aria-label="Jung Yubin">
-              <span className="word">
-                <i>Yubin</i>
-              </span>
-              <br />
-              <span className="word it">
-                <i>Jung.</i>
-              </span>
-            </h1>
-            <div className="hero-bottom rv">
-              <p className="intro">
-                7년 차 프로덕트 디자이너. <b>핀테크·헬스케어·B2B</b> 제품에서
-                복잡한 흐름을 명료한 인터페이스와 디자인 시스템으로 풀어냅니다.
-              </p>
-              <div className="hero-side">
-                <span className="avail">
-                  <span className="pulse" />2026 Q3 새로운 기회를 찾는 중
-                </span>
-                <span className="scrollcue">
-                  Scroll<span className="ln" />Work
-                </span>
-              </div>
-            </div>
+
+        <h1 className="hero-name rv" aria-label="Jung Yubin">
+          JUNG
+          <br />
+          YUBIN<span className="it">.</span>
+        </h1>
+
+        <div className="hero-divider" />
+
+        <div className="hero-bottom rv">
+          <p className="intro">
+            천재 디자이너.{" "}
+            <strong>핀테크·헬스케어·B2B</strong> 제품에서 복잡한 흐름을
+            명료한 인터페이스와 디자인 시스템으로 풀어냅니다.
+          </p>
+          <div className="hero-side">
+            <span className="avail">
+              <span className="pulse" />
+              2026 Q3 새로운 기회를 찾는 중
+            </span>
+            <span className="scrollcue">
+              Scroll<span className="ln" />Work
+            </span>
           </div>
         </div>
+
         <div className="marquee" aria-hidden="true">
           <div className="track" id="marq">
             {[...MARQUEE, ...MARQUEE].map((m, i) => (
-              <span className="it" key={i}>
-                {m}
-              </span>
+              <span className="it" key={i}>{m}</span>
             ))}
           </div>
         </div>
@@ -209,50 +189,59 @@ export default function Home() {
 
       {/* WORK */}
       <section id="work">
-        <div className="sec-head rv">
-          <span className="no">01 — Selected Work</span>
-          <h2>여섯 개의 케이스</h2>
+        <div className="sec-label rv">
+          <span className="dot-accent">●</span>
+          <span className="label">Selected Work</span>
+          <span className="sec-n">01</span>
         </div>
-        <div className="work-list">
+        <div className="work-grid">
           {PROJECTS.map((p) => (
-            <a className="proj rv" href="#" onClick={noop} key={p.no}>
-              <span className="pno">{p.no}</span>
-              <span className="pmain">
-                <span className="ptitle">
-                  {p.title} <em>↗</em>
-                </span>
-                <span className="ptags">
+            <a className="proj-card rv" href="#" onClick={noop} key={p.no}>
+              <div className="card-img">
+                <ImageSlot radius={0} placeholder={p.placeholder} />
+                <span className="card-arrow">↗</span>
+              </div>
+              <div className="card-body">
+                <div className="card-top">
+                  <span className="card-num">{p.no}</span>
+                  <span className="card-title">
+                    {p.title}
+                    <em className="arr">↗</em>
+                  </span>
+                </div>
+                <div className="card-tags">
                   {p.tags.map((t) => (
                     <span key={t}>{t}</span>
                   ))}
-                </span>
-              </span>
-              <span className="pmeta">
-                <span className="yr">{p.year}</span>
-                <span>{p.role}</span>
-              </span>
-              <span className="preveal">
-                <ImageSlot radius={4} placeholder={p.placeholder} />
-              </span>
+                </div>
+                <div className="card-foot">
+                  <span className="card-year">{p.year}</span>
+                  <span className="card-role">{p.role}</span>
+                </div>
+              </div>
             </a>
           ))}
         </div>
       </section>
 
       {/* ABOUT */}
-      <section id="about" style={{ marginTop: 70 }}>
-        <div className="sec-head rv">
-          <span className="no">02 — About</span>
-          <h2>디자이너 소개</h2>
+      <section id="about">
+        <div className="sec-label rv">
+          <span className="dot-accent">●</span>
+          <span className="label">About</span>
+          <span className="sec-n">02</span>
         </div>
         <div className="about">
-          <div>
-            <p className="lead rv">
-              제품을 만드는 일은 결국 <em>사람의 결정</em>을 돕는 일이라 믿습니다.
-              그래서 화려함보다 명료함을, 직관보다 검증을 먼저 둡니다.
+          <div className="about-l rv">
+            <p className="lead">
+              제품을 만드는 일은 결국{" "}
+              <em>사람의 결정</em>을 돕는 일이라 믿습니다. 그래서 화려함보다
+              명료함을, 직관보다 검증을 먼저 둡니다.
             </p>
-            <div className="portrait rv" style={{ marginTop: 34 }}>
-              <ImageSlot radius={6} placeholder="portrait / 4:5" />
+            <div className="portrait-wrap">
+              <div className="portrait-circle">
+                <ImageSlot radius={999} placeholder="portrait · 1:1" />
+              </div>
             </div>
           </div>
           <div className="about-r rv">
@@ -280,10 +269,11 @@ export default function Home() {
       </section>
 
       {/* PROCESS */}
-      <section id="process" className="process" style={{ marginTop: 60 }}>
-        <div className="sec-head rv">
-          <span className="no">03 — Approach</span>
-          <h2>일하는 방식</h2>
+      <section id="process">
+        <div className="sec-label rv">
+          <span className="dot-accent">●</span>
+          <span className="label">Approach</span>
+          <span className="sec-n">03</span>
         </div>
         <div className="proc-grid rv">
           {PROCESS.map((c) => (
@@ -297,10 +287,11 @@ export default function Home() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" style={{ marginTop: 50 }}>
-        <div className="sec-head rv">
-          <span className="no">04 — Capabilities</span>
-          <h2>스킬 &amp; 툴</h2>
+      <section id="skills">
+        <div className="sec-label rv">
+          <span className="dot-accent">●</span>
+          <span className="label">Capabilities</span>
+          <span className="sec-n">04</span>
         </div>
         <div className="skills">
           <div className="col rv">
@@ -318,9 +309,7 @@ export default function Home() {
             <h4>Practice</h4>
             <div className="skill-tags">
               {PRACTICE.map((t) => (
-                <span className="t" key={t}>
-                  {t}
-                </span>
+                <span className="t" key={t}>{t}</span>
               ))}
             </div>
           </div>
@@ -329,29 +318,24 @@ export default function Home() {
 
       {/* CONTACT */}
       <section id="contact" className="contact">
-        <span className="label rv" style={{ display: "block", marginBottom: 16 }}>
-          05 — Let&apos;s talk
-        </span>
+        <div className="sec-label rv" style={{ borderBottom: "none", paddingBottom: 24 }}>
+          <span className="dot-accent">●</span>
+          <span className="label">Let&apos;s talk</span>
+          <span className="sec-n">05</span>
+        </div>
         <div className="big rv">
           <a href="mailto:hello@jungyubin.design">
-            <em>같이</em> 만들어요<span className="arr">↗</span>
+            <span className="it">같이</span>&nbsp;만들어요
+            <span className="arr">↗</span>
           </a>
         </div>
         <div className="contact-row rv">
           <div className="socials">
             <a href="mailto:hello@jungyubin.design">Email</a>
-            <a href="#" onClick={noop}>
-              LinkedIn
-            </a>
-            <a href="#" onClick={noop}>
-              Behance
-            </a>
-            <a href="#" onClick={noop}>
-              Dribbble
-            </a>
-            <a href="#" onClick={noop}>
-              Instagram
-            </a>
+            <a href="#" onClick={noop}>LinkedIn</a>
+            <a href="#" onClick={noop}>Behance</a>
+            <a href="#" onClick={noop}>Dribbble</a>
+            <a href="#" onClick={noop}>Instagram</a>
           </div>
           <a className="resume2" href="#" onClick={resumeAlert}>
             <span>Résumé 2026 (PDF)</span>

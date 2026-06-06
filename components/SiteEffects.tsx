@@ -37,7 +37,7 @@ export default function SiteEffects() {
       };
       loop();
 
-      const hot = "a,button,.proj,.image-slot,[data-link]";
+      const hot = "a,button,.proj-card,.image-slot,[data-link]";
       const hotEls = Array.from(document.querySelectorAll(hot));
       const enter = () => cur.classList.add("is-link");
       const leave = () => cur.classList.remove("is-link");
@@ -111,26 +111,6 @@ export default function SiteEffects() {
         b.removeEventListener("mousemove", mv);
         b.removeEventListener("mouseleave", ml);
       })
-    );
-
-    /* ---------- project reveal follows cursor ---------- */
-    const projs = Array.from(document.querySelectorAll<HTMLElement>(".proj"));
-    const projHandlers = projs
-      .map((p) => {
-        const rv = p.querySelector<HTMLElement>(".preveal");
-        if (!rv) return null;
-        const mv = (e: MouseEvent) => {
-          const r = p.getBoundingClientRect();
-          const yy = e.clientY - r.top;
-          rv.style.top = yy + "px";
-          rv.style.transform = `translateY(-50%) scale(1) rotate(-2deg)`;
-        };
-        p.addEventListener("mousemove", mv);
-        return { p, mv };
-      })
-      .filter(Boolean) as Array<{ p: HTMLElement; mv: (e: MouseEvent) => void }>;
-    cleanups.push(() =>
-      projHandlers.forEach(({ p, mv }) => p.removeEventListener("mousemove", mv))
     );
 
     /* ---------- clock ---------- */
